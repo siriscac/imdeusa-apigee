@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>CORSPreflight</Name>
+                <Condition>request.verb = OPTIONS</Condition>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>CORS</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="orgs">
+            <Description>Get All Orgs resgistered in System</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>formatOrgs</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="findOrgsByTags">
+            <Description>Finds Orgs by tags</Description>
+            <Request>
+                <Step>
+                    <Name>FindByTags</Name>
+                </Step>
+                <Step>
+                    <Name>SetTagsParam</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>formatOrgs</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs/findByTags") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="addOrg">
+            <Description>Add a new Org to the System</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>formatOrg</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="orgbyId">
+            <Description>Returns Org by Id</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>formatOrg</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="actionOrg">
+            <Description>Update an Orgn</Description>
+            <Request>
+                <Step>
+                    <Name>DeRegisterOrg</Name>
+                    <Condition>request.queryparam.action = "deregister"</Condition>
+                </Step>
+                <Step>
+                    <Name>RegisterOrg</Name>
+                    <Condition>request.queryparam.action = "register"</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>formatOrg</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs/*") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="deleteOrg">
+            <Description>Delete an Orgn</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>formatOrg</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/orgs/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        
+        <Flow name="getAllCategories">
+            <Description>Get all categories</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/categories") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="createCategory">
+            <Description>Create a Category</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/categories") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="getCategoryByName">
+            <Description>Get a Category</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/categories/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="createUser">
+            <Description>Create user</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="getUserByName">
+            <Description>Get user by user name</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="updateUser">
+            <Description>Updated user</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="deleteUser">
+            <Description>Delete user</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="getAllAudits">
+            <Description>Get All Audit Reports</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/audits") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="createAudit">
+            <Description>Create an audit record</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/audits") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="getAllEvents">
+            <Description>Get All Events</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/events") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="creatEvent">
+            <Description>Create a Event record</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/events") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="createNotification">
+            <Description>Create a notification</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/notifications/*") and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/imedusaapi</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

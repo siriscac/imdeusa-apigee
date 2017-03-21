@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="imedusaAPI">
+    <Basepaths>/v1/imedusaapi</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1490132393872</CreatedAt>
+    <CreatedBy>rajeshmishra@apigee.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>imedusaAPI</DisplayName>
+    <LastModifiedAt>1490132393872</LastModifiedAt>
+    <LastModifiedBy>rajeshmishra@apigee.com</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+    </Resources>
+    <Spec>/c3Rvc-ZG9j-18430/content</Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

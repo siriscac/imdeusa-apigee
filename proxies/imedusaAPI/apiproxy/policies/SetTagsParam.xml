@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="SetTagsParam">
+    <DisplayName>SetTagsParam</DisplayName>
+    <Properties/>
+    <Remove>
+        <QueryParams>
+            <QueryParam name="filter1Name"/>
+            <QueryParam name="filter1Value"/>
+            <QueryParam name="filter2Name"/>
+            <QueryParam name="filter2Value"/>
+            <QueryParam name="filter3Name"/>
+            <QueryParam name="filter3Value"/>
+        </QueryParams>
+    </Remove>
+    <Add>
+        <QueryParams>
+            <QueryParam name="ql">{ql}</QueryParam>
+        </QueryParams>
+    </Add>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
