@@ -72,7 +72,6 @@
                         "description": "Org object that needs to be added to the system",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Org"
                         }
                     }
@@ -81,7 +80,6 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Org"
                         }
                     },
@@ -122,7 +120,6 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Org"
                         }
                     },
@@ -169,7 +166,6 @@
                         "description": "The property change that needs to take place",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Action"
                         }
                     }
@@ -178,7 +174,6 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Org"
                         }
                     },
@@ -217,7 +212,6 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Org"
                         }
                     },
@@ -299,7 +293,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "object",
                                 "$ref": "#/definitions/Org"
                             }
                         }
@@ -317,13 +310,13 @@
                 ],
                 "summary": "Get all categories",
                 "description": "Get all dynamic categories",
+                "operationId": "getAllCategories",
                 "responses": {
                     "200": {
                         "description": "Success",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "object",
                                 "$ref": "#/definitions/Category"
                             }
                         }
@@ -361,7 +354,6 @@
                         "description": "Created Category object",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Category"
                         }
                     }
@@ -398,7 +390,6 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Category"
                         }
                     },
@@ -430,7 +421,6 @@
                         "description": "Created user object",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     }
@@ -439,7 +429,6 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     },
@@ -474,7 +463,6 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     },
@@ -511,7 +499,6 @@
                         "description": "Updated user object",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     }
@@ -520,7 +507,6 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     },
@@ -556,7 +542,6 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/User"
                         }
                     },
@@ -587,7 +572,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "object",
                                 "$ref": "#/definitions/Audit"
                             }
                         }
@@ -612,7 +596,6 @@
                         "description": "Created audit object",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Audit"
                         }
                     }
@@ -642,7 +625,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "object",
                                 "$ref": "#/definitions/Event"
                             }
                         }
@@ -667,7 +649,6 @@
                         "description": "Create a Event ",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Event"
                         }
                     }
@@ -701,7 +682,6 @@
                         "description": "Created Notification",
                         "required": false,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/Notification"
                         }
                     }
@@ -756,7 +736,6 @@
                     "type": "string"
                 },
                 "usages": {
-                    "type": "object",
                     "$ref": "#/definitions/Usages"
                 }
             }
