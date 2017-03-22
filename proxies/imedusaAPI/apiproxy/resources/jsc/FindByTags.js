@@ -23,7 +23,7 @@ function isNullOrEmpty(value)
 
 
 var tag1=context.getVariable("request.queryparam.filter1Name");
-var value1=context.getVariable("request.queryparam.filer1Value");
+var value1=context.getVariable("request.queryparam.filter1Value");
 var tag2=context.getVariable("request.queryparam.filter2Name");
 var value2=context.getVariable("request.queryparam.filter2Value");
 var tag3=context.getVariable("request.queryparam.filter3Name");
