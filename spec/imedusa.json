@@ -607,14 +607,14 @@
                 }
             }
         },
-        "/events": {
+        "/batchevents": {
             "get": {
                 "tags": [
-                    "events"
+                    "batchevents"
                 ],
-                "summary": "Get All Events",
-                "description": "Events",
-                "operationId": "getAllEvents",
+                "summary": "Get All Batch Events",
+                "description": "Batch Events",
+                "operationId": "getAllBatchEvents",
                 "produces": [
                     "application/json",
                     "application/xml"
@@ -625,7 +625,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Event"
+                                "$ref": "#/definitions/BatchEvent"
                             }
                         }
                     }
@@ -633,11 +633,11 @@
             },
             "post": {
                 "tags": [
-                    "events"
+                    "batchevents"
                 ],
-                "summary": "Create a Event record",
-                "description": "Event Record",
-                "operationId": "createEvent",
+                "summary": "Create a Batch Event record",
+                "description": "Batch Event Record",
+                "operationId": "createBatchEvent",
                 "produces": [
                     "application/json",
                     "application/xml"
@@ -649,7 +649,7 @@
                         "description": "Create a Event ",
                         "required": false,
                         "schema": {
-                            "$ref": "#/definitions/Event"
+                            "$ref": "#/definitions/BatchEvent"
                         }
                     }
                 ],
@@ -802,7 +802,7 @@
                 }
             }
         },
-        "Event": {
+        "BatchEvent": {
             "type": "object",
             "properties": {
                 "org": {
